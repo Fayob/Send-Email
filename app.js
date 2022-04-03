@@ -4,14 +4,22 @@ require("express-async-errors");
 const express = require("express");
 const app = express();
 
-// middleware
+// controller
+const sendEmail = require("./controllers/sendEmail");
+
+// errorHandlers
 const notFound = require("./middleware/not_found");
 const errorHandler = require("./middleware/error-handler");
 
 // routes
 app.get("/", (req, res) => {
-  res.send("<h1> Email Sending </h1>");
+  res.send("<h1> Email Sending </h1> <a href='/send'> Send Email </a>");
 });
+
+app.get("/send", sendEmail);
+
+app.use(notFound);
+app.use(errorHandler);
 
 const port = process.env.PORT || 3000;
 
