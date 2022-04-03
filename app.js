@@ -11,6 +11,8 @@ const sendEmail = require("./controllers/sendEmail");
 const notFound = require("./middleware/not_found");
 const errorHandler = require("./middleware/error-handler");
 
+app.use(express.json());
+
 // routes
 app.get("/", (req, res) => {
   res.send("<h1> Email Sending </h1> <a href='/send'> Send Email </a>");
