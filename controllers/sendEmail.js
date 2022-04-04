@@ -20,8 +20,8 @@ const sendEmail = async (req, res) => {
     html: "<h2>Sending Emails with Node.JS</h2>",
   });
 
-  // res.json(info);
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  res.json(info);
+  // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 };
 
 module.exports = sendEmail;
